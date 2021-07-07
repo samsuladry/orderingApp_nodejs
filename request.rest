@@ -1,0 +1,92 @@
+GET http://localhost:3001/api/users/
+Content-Type: application/json
+
+###
+POST http://localhost:3001/api/users/signUp
+Content-Type: application/json
+
+{
+    "name": "adry",
+    "password": "123456",
+    "balance": 200
+}
+
+###
+POST http://localhost:3001/api/users/login
+Content-Type: application/json
+
+{
+    "name": "samsul",
+    "password": "123456"
+}
+
+
+###
+POST http://localhost:3001/api/users/topupBalance
+Content-Type: application/json
+Authorization: already Login
+
+{
+    "name": "samsul",
+    "amount": 100
+}
+
+###
+GET http://localhost:3001/api/order/
+Content-Type: application/json
+
+###
+GET http://localhost:3001/api/order/getOrder/adry/1398c82a-d6d1-4cd8-9bf9-d3294ec73273
+Content-Type: application/json
+Authorization: login
+
+###
+POST http://localhost:3001/api/order/createOrder
+Content-Type: application/json
+Authorization: already Login
+
+{
+    "name": "samsul",
+    "prodName": "Air sejuk",
+    "price": 400,
+    "quantity": 1
+
+}
+
+###
+POST http://localhost:3001/api/order/confirmOrder
+Content-Type: application/json
+Authorization: already Login
+
+{
+    "name": "adry",
+    "orderId": "1398c82a-d6d1-4cd8-9bf9-d3294ec73273"
+}
+
+###
+POST http://localhost:3001/api/order/cancelOrder
+Content-Type: application/json
+Authorization: already Login
+
+{
+    "name": "adry",
+    "orderId": "1398c82a-d6d1-4cd8-9bf9-d3294ec73273"
+}
+
+###
+GET http://localhost:3001/api/payment/
+Content-Type: application/json
+
+###
+GET http://localhost:3001/api/payment/getPaymentDetails/c34d8835-cf53-48da-a925-e642c89ccd8a
+Content-Type: application/json
+
+###
+POST http://localhost:3001/api/payment/makePayment
+Content-Type: application/json
+Authorization: login
+
+{
+    "name": "adry",
+    "orderId": "1398c82a-d6d1-4cd8-9bf9-d3294ec73273"
+}
